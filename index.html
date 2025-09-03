@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tired of Losing Every Spin? | The Golden Player’s Playbook</title>
+  <meta name="description" content="Tired of losing at online casinos? Discover bankroll strategy, smart game selection, and promo hacks in this concise ebook. Pay with crypto and get instant access." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120b0b;
+      --card:#1a1208;
+      --muted:#c6c6c6;
+      --text:#fff5e6;
+      --brand:#d40000;    /* roulette red */
+      --brand-2:#ffd700;  /* casino gold */
+      --accent:#008b2f;   /* blackjack green */
+      --danger:#ff4d4d;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);
+      background:radial-gradient(1200px 800px at 80% -10%, #2d0000 0%, rgba(27,35,64,0) 60%), linear-gradient(180deg, #120b0b 0%, #0a0000 100%);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:min(1100px, 92%); margin-inline:auto}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.9rem 1.2rem; border-radius:14px; font-weight:700;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#120b0b; border:none; cursor:pointer;
+      transition:transform .15s ease, filter .2s;
+      box-shadow:0 0 12px rgba(255,215,0,.4);
+      animation: casinoGlow 2s infinite;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.1)}
+    .btn.secondary{
+      background:linear-gradient(135deg, #154d25, #0a2f14);
+      color:var(--text); border:1px solid #1f5c2e;
+      animation:none;
+    }
+
+    /* Chips */
+    .chip{
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.3rem .6rem; border-radius:999px;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#120b0b; font-size:.8rem; font-weight:700;
+      box-shadow:0 0 10px rgba(255,215,0,.5);
+    }
+
+    /* Header */
+    header{position:sticky; top:0; backdrop-filter: blur(8px);
+      background:rgba(18,11,11,.85); border-bottom:2px solid var(--brand-2); z-index:10}
+    header .bar{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .logo{display:flex; align-items:center; gap:.6rem; font-weight:800}
+    .logo .mark{
+      width:28px; height:28px; border-radius:8px;
+      background:conic-gradient(from 200deg, var(--brand), var(--brand-2), var(--accent));
+      box-shadow:0 0 30px #ffd70088 inset;
+    }
+
+    /* Hero */
+    .hero{padding:4.5rem 0 2.5rem;}
+    .heroGrid{display:grid; grid-template-columns:1.2fr .9fr; gap:2rem}
+    .title{
+      font-size:clamp(2rem, 4.5vw, 3.2rem);
+      line-height:1.05; letter-spacing:-.02em;
+      margin:0 0 1rem;
+      background: linear-gradient(90deg, #ffd700, #fff5e6, #ffd700);
+      background-size: 200px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 4s linear infinite;
+    }
+    .subtitle{color:var(--muted); font-size:1.1rem}
+    .cover{
+      background:linear-gradient(145deg,#2d0000,#120b0b);
+      padding:1.4rem; border:2px solid var(--brand-2);
+      border-radius:18px; box-shadow:0 10px 40px rgba(212,0,0,.4);
+    }
+    .ebook{
+      aspect-ratio:3/4; border-radius:14px;
+      background:linear-gradient(180deg,#154d25,#0a2f14);
+      display:grid; place-items:center; position:relative; overflow:hidden;
+      box-shadow:0 0 20px rgba(0,139,47,.6);
+    }
+    .ebook::after{
+      content:"Golden Player’s\A Playbook"; white-space:pre;
+      position:absolute; inset:auto 0 14px 14px;
+      font-weight:800; font-size:1.4rem; color:#ffd70033;
+    }
+    .ebookBadge{
+      position:absolute; top:12px; right:12px;
+      background:var(--brand); color:var(--brand-2);
+      border:1px solid var(--brand-2);
+      padding:.35rem .6rem; border-radius:10px; font-size:.8rem; font-weight:700;
+    }
+
+    /* Sections */
+    .bullets{display:grid; gap:.8rem; margin:1.2rem 0}
+    .bullets b{color:var(--brand-2)}
+    .section{padding:3.5rem 0; border-top:1px solid #330000}
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem}
+    .card{
+      background:linear-gradient(145deg,#1a1208,#120b0b);
+      border:1px solid #ffd70055; border-radius:16px; padding:1.1rem;
+      box-shadow:0 0 12px rgba(255,215,0,.15);
+    }
+    .muted{color:var(--muted)}
+
+    /* Testimonials */
+    .testi{display:grid; gap:1rem; grid-template-columns:repeat(2,1fr)}
+    .testi .quote{
+      background:#1a1208; border:1px solid #ffd70055;
+      border-radius:14px; padding:1rem; box-shadow:0 0 12px rgba(255,215,0,.2);
+    }
+
+    /* CTA */
+    .cta{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.2rem}
+    .price{font-weight:800; font-size:1.6rem; color:var(--brand-2); text-shadow:0 0 6px rgba(255,215,0,.6);}
+    .countdown{
+      font-variant-numeric:tabular-nums;
+      font-weight:700; color:var(--accent);
+      animation: neonFlicker 2.5s infinite;
+    }
+
+    /* Checkout */
+    .wallet{display:grid; gap:.6rem}
+    input.addr{
+      width:100%; padding:.8rem 1rem;
+      background:#120b0b; color:var(--text);
+      border:1px dashed var(--brand-2);
+      border-radius:12px; font-family:ui-monospace;
+    }
+    .qr{background:#1a1208; border:1px solid #ffd70055; border-radius:12px; padding:1rem; display:grid; place-items:center; min-height:180px}
+    .faq details{background:#1a1208; border:1px solid #ffd70055; border-radius:12px; padding:1rem 1rem;}
+    .faq details+details{margin-top:.8rem}
+
+    /* Footer */
+    .foot{padding:2.2rem 0; border-top:2px solid var(--brand-2); color:#c6c6c6; font-size:.9rem; text-align:center}
+    .badges{display:flex; gap:.5rem; flex-wrap:wrap}
+    .badges span{
+      background:#120b0b; border:1px solid #ffd70055;
+      padding:.4rem .6rem; border-radius:10px; font-size:.82rem; color:var(--brand-2);
+    }
+    .warning{color:var(--danger); font-weight:700}
+    form{display:grid; gap:1rem; margin-top:1rem}
+    input,textarea{
+      padding:.8rem 1rem; border-radius:10px;
+      border:1px solid var(--brand-2);
+      background:#120b0b; color:var(--text)
+    }
+
+    /* Casino Glow Animations */
+    @keyframes casinoGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,.6), 0 0 20px rgba(212,0,0,.6); }
+      50% { box-shadow: 0 0 20px rgba(255,215,0,.9), 0 0 40px rgba(0,139,47,.7); }
+    }
+    @keyframes goldShimmer {
+      0% { background-position: -200px 0; }
+      100% { background-position: 200px 0; }
+    }
+    @keyframes neonFlicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 6px #00ff66, 0 0 12px #00ff66, 0 0 20px #00ff66;
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+        opacity: .7;
+      }
+    }
+
+    /* Floating audio button */
+    .audio-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #d40000, #ffd700);
+      color: #120b0b;
+      font-weight: 700;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,215,0,.6);
+      cursor: pointer;
+      z-index: 999;
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .audio-btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .testi{grid-template-columns:1fr}
+    }
+  </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const launchKey = "sgp-launch-start";
+  const sevenDays = 1000 * 60 * 60 * 24 * 7; // 7 days in ms
+  let start = localStorage.getItem(launchKey);
+
+  if (!start) {
+    start = Date.now();
+    localStorage.setItem(launchKey, start);
+  }
+
+  function tick() {
+    const now = Date.now();
+    const end = Number(start) + sevenDays;
+    const left = Math.max(0, end - now);
+
+    // calculate days, hours, minutes, seconds
+    const d = String(Math.floor(left / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    const h = String(Math.floor((left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+    const m = String(Math.floor((left % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    const s = String(Math.floor((left % (1000 * 60)) / 1000)).padStart(2, '0');
+
+    const el = document.querySelector('.countdown');
+    if (el) el.textContent = `${d}:${h}:${m}:${s}`;
+  }
+
+  tick(); // run immediately
+  setInterval(tick, 1000); // update every second
+});
+</script>
+
+
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container bar">
+      <div class="logo"><div class="mark"></div><span>The Golden Player’s Playbook</span></div>
+      <nav class="badges"><span>Pay with Crypto</span><span>Instant Delivery</span><span>Secure Checkout</span></nav>
+    </div>
+  </header>  
+
+  <!-- MAIN -->
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="chip">🎰 Stop Donating to the House</div>
+          <h1 class="title">Tired of Losing Every Spin?</h1>
+          <p class="subtitle">This playbook was developed by a team of seasoned online casino professionals, bringing together years of expertise to simplify the complexities of online gaming. Inside, you’ll find proven strategies designed to help you play with confidence, boost your chances of winning, and cash out more often!</p>
+          <div class="bullets">
+            <div>📖 <b>26-page crash guide</b> — no fluff, just what works.</div>
+            <div>💰 <b>Bankroll blueprint</b> to stop chasing losses.</div>
+            <div>🎯 <b>High-EV game selection</b> & bonus abuse tactics.</div>
+            <div>⚡ <b>Crypto-friendly checkout</b>, instant delivery.</div>
+          </div>
+          <div class="cta">
+            <a href="#checkout" class="btn">Get Instant Access</a>
+            <span class="muted">Launch discount ends in <span class="countdown"></span></span>
+          </div>
+        </div>
+        <div class="cover">
+          <div class="ebook">
+            <div class="ebookBadge">Ebook PDF</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Callout -->
+    <section class="section" id="learn">
+      <h2>Here’s the harsh truth</h2>
+      <p class="muted">Most players lose because they treat online gambling like a quick win button. Casinos are engineered to exploit impatience and tilt. If you don’t have a plan, you’re the product.</p>
+      <div class="grid-3" style="margin-top:1.2rem">
+        <div class="card">❌ Deposit bonuses that lock you in impossible wagering traps.</div>
+        <div class="card">❌ Slots with rigged RTP when you play them wrong.</div>
+        <div class="card">❌ Chasing losses until your bankroll bleeds dry.</div>
+      </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="section">
+      <h2>What’s Inside the Playbook?</h2>
+      <div class="grid-3" style="margin-top:1.2rem">
+        <div class="card">
+          <h3>Bankroll Mastery</h3>
+          <p class="muted">The same stop-loss structures pros use to never bust their account in a single night.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Game Selection</h3>
+          <p class="muted">Which games to avoid (98% of them) and which to target for consistent edges.</p>
+        </div>
+        <div class="card">
+          <h3>Promo & Bonus Hacks</h3>
+          <p class="muted">Stackable offers and hidden bonus EV most players never touch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <h2>Real Players. Real Results.</h2>
+      <div class="testi" style="margin-top:1.2rem">
+        <div class="quote">“I used to redeposit 3x a week. After applying the bankroll tips, I now withdraw more often than I reload.” — <b>@SpinSharp</b></div>
+        <div class="quote">“The promo chapter alone paid for itself. I cleared a $200 bonus with only $40 risked.” — <b>@EdgeHunter</b></div>
+      </div>
+    </section>
+
+    <!-- Offer -->
+<section class="section">
+  <h2>Launch Offer</h2>
+  <p class="muted">Get the full <b>Golden Player’s Playbook</b> PDF today for the cost of a single bad spin.</p>
+  <div class="cta">
+    <div class="price">
+      <span style="text-decoration: line-through; color:var(--brand-2); opacity:0.5; font-size:1.2rem; margin-right:.6rem;">$99.99</span>
+      $29.99
+    </div>
+    <a href="#checkout" class="btn">Buy with Crypto</a>
+  </div>
+  <p class="muted" style="margin-top:.8rem">Instant delivery after payment. No account needed.</p>
+</section>
+
+
+    <!-- Checkout -->
+    <section class="section" id="checkout">
+      <h2>Crypto Checkout</h2>
+      <p class="muted">
+        Send your payment in <b>ETH</b> or <b>USDT (ERC20)</b> to the wallet below. 
+        After sending, you can either email your transaction hash OR use the form below.
+      </p>
+
+      <!-- Wallet Card -->
+      <div class="card">
+        <h3>Ethereum / USDT (ERC20)</h3>
+        <div class="wallet">
+          <label>Wallet Address</label>
+          <input class="addr" id="addr-eth" value="0x0ebfe4c56e75a0e80a3E4beA56eE4E88e821b312" readonly>
+          <div class="cta">
+            <button class="btn secondary" data-copy="addr-eth" onclick="copyAddr('addr-eth')">Copy Address</button>
+          </div>
+          <div class="qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=0x0ebfe4c56e75a0e80a3E4beA56eE4E88e821b312" alt="ETH / USDT Wallet QR Code">
+          </div>
+        </div>
+      </div>
+
+      <p class="warning" style="margin-top:1rem">⚠️ Digital goods are non-refundable. Please double-check the wallet address before sending crypto.</p>
+
+      <!-- Submission Form -->
+      <div class="card" style="margin-top:1.5rem">
+        <h3>Submit Your Payment Details</h3>
+        <form>
+          <label>Email Address (where ebook will be sent)</label>
+          <input type="email" placeholder="your@email.com" required>
+
+          <label>Transaction Hash (TX ID)</label>
+          <input type="text" placeholder="Paste your TX ID" required>
+
+          <label>Upload Screenshot of Payment</label>
+          <input type="file" accept="image/*" required>
+
+          <button class="btn" type="submit">Submit & Receive Ebook</button>
+        </form>
+      </div>
+
+      <!-- MetaMask Suggestion -->
+      <div class="card" style="margin-top:1.5rem">
+        <h3>Don’t have a crypto wallet?</h3>
+        <p class="muted">Download MetaMask (browser & mobile wallet) to pay securely with crypto.</p>
+        <div class="cta">
+          <a class="btn" href="https://metamask.io/download/" target="_blank">Download MetaMask</a>
+        </div>
+      </div>
+
+      <!-- Donation Option -->
+      <div class="card" style="margin-top:1.5rem">
+        <h3>Support the Project</h3>
+        <p class="muted">If you’d like to support without purchasing, you can send a donation in ETH or USDT to the same wallet address.</p>
+        <div class="cta">
+          <button class="btn secondary" data-copy="addr-eth" onclick="copyAddr('addr-eth')">Copy Donation Address</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>How will I receive the ebook?</summary>
+        <p>You’ll receive it instantly via email once your payment is confirmed.</p>
+      </details>
+      <details>
+        <summary>What format is the ebook?</summary>
+        <p>You get a PDF file that works on any device.</p>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <p>Refund? 🤔 I don’t think so… but I can assure you, you’ll be donating 💸. Let the results speak for themselves 🎰✨ </p>
+</section>
+<!-- Footer -->
+<footer class="foot">
+  © 2025 The Golden Player’s Playbook. All Rights Reserved.  
+</footer>
