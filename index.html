@@ -170,15 +170,19 @@
       100% { background-position: 200px 0; }
     }
     @keyframes neonFlicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        text-shadow: 0 0 6px #00ff66, 0 0 12px #00ff66, 0 0 20px #00ff66;
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        text-shadow: none;
-        opacity: .7;
-      }
-    }
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 3px #00cc55, 
+      0 0 6px #00cc55, 
+      0 0 10px #00cc55;
+    opacity: 0.9;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: .6;
+  }
+}
+
 
     /* Floating audio button */
     .audio-btn {
@@ -412,3 +416,4 @@ document.addEventListener("DOMContentLoaded", () => {
   © 2025 The Golden Player’s Playbook. All Rights Reserved.  
 
 </footer>
+
