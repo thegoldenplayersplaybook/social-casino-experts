@@ -88,24 +88,22 @@
       border-radius:18px; box-shadow:0 10px 40px rgba(212,0,0,.4);
     }
     .ebook{
-      aspect-ratio:3/4; border-radius:14px;
-      background:linear-gradient(180deg,#154d25,#0a2f14);
-      display:grid; place-items:center; position:relative; overflow:hidden;
+      aspect-ratio:3/4;
+      border-radius:14px;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       box-shadow:0 0 20px rgba(0,139,47,.6);
     }
-    .ebook::after{
-      content:"Golden Player’s\A Playbook"; white-space:pre;
-      position:absolute; inset:auto 0 14px 14px;
-      font-weight:800; font-size:1.4rem; color:#ffd70033;
+    .ebook-img {
+      width:100%;
+      height:100%;
+      object-fit:cover; /* crop to fit box */
+      border-radius:14px;
     }
-    .ebookBadge{
-      position:absolute; top:12px; right:12px;
-      background:var(--brand); color:var(--brand-2);
-      border:1px solid var(--brand-2);
-      padding:.35rem .6rem; border-radius:10px; font-size:.8rem; font-weight:700;
-    }
-
-    /* Sections */
+    /* Sections, testimonials, footer etc. */
     .bullets{display:grid; gap:.8rem; margin:1.2rem 0}
     .bullets b{color:var(--brand-2)}
     .section{padding:3.5rem 0; border-top:1px solid #330000}
@@ -116,15 +114,11 @@
       box-shadow:0 0 12px rgba(255,215,0,.15);
     }
     .muted{color:var(--muted)}
-
-    /* Testimonials */
     .testi{display:grid; gap:1rem; grid-template-columns:repeat(2,1fr)}
     .testi .quote{
       background:#1a1208; border:1px solid #ffd70055;
       border-radius:14px; padding:1rem; box-shadow:0 0 12px rgba(255,215,0,.2);
     }
-
-    /* CTA */
     .cta{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.2rem}
     .price{font-weight:800; font-size:1.6rem; color:var(--brand-2); text-shadow:0 0 6px rgba(255,215,0,.6);}
     .countdown{
@@ -132,8 +126,6 @@
       font-weight:700; color:var(--accent);
       animation: neonFlicker 2.5s infinite;
     }
-
-    /* Checkout */
     .wallet{display:grid; gap:.6rem}
     input.addr{
       width:100%; padding:.8rem 1rem;
@@ -144,8 +136,6 @@
     .qr{background:#1a1208; border:1px solid #ffd70055; border-radius:12px; padding:1rem; display:grid; place-items:center; min-height:180px}
     .faq details{background:#1a1208; border:1px solid #ffd70055; border-radius:12px; padding:1rem 1rem;}
     .faq details+details{margin-top:.8rem}
-
-    /* Footer */
     .foot{padding:2.2rem 0; border-top:2px solid var(--brand-2); color:#c6c6c6; font-size:.9rem; text-align:center}
     .badges{display:flex; gap:.5rem; flex-wrap:wrap}
     .badges span{
@@ -160,7 +150,7 @@
       background:#120b0b; color:var(--text)
     }
 
-    /* Casino Glow Animations */
+    /* Animations */
     @keyframes casinoGlow {
       0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,.6), 0 0 20px rgba(212,0,0,.6); }
       50% { box-shadow: 0 0 20px rgba(255,215,0,.9), 0 0 40px rgba(0,139,47,.7); }
@@ -170,40 +160,15 @@
       100% { background-position: 200px 0; }
     }
     @keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 
-      0 0 3px #00cc55, 
-      0 0 6px #00cc55, 
-      0 0 10px #00cc55;
-    opacity: 0.9;
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-    opacity: .6;
-  }
-}
-
-
-    /* Floating audio button */
-    .audio-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #d40000, #ffd700);
-      color: #120b0b;
-      font-weight: 700;
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,215,0,.6);
-      cursor: pointer;
-      z-index: 999;
-      transition: transform .2s ease, filter .2s ease;
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 3px #00cc55, 0 0 6px #00cc55, 0 0 10px #00cc55;
+        opacity: 0.9;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+        opacity: .6;
+      }
     }
-    .audio-btn:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
-    }
-
     @media (max-width: 900px){
       .heroGrid{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
@@ -211,39 +176,32 @@
     }
   </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const launchKey = "sgp-launch-start";
-  const sevenDays = 1000 * 60 * 60 * 24 * 7; // 7 days in ms
-  let start = localStorage.getItem(launchKey);
-
-  if (!start) {
-    start = Date.now();
-    localStorage.setItem(launchKey, start);
-  }
-
-  function tick() {
-    const now = Date.now();
-    const end = Number(start) + sevenDays;
-    const left = Math.max(0, end - now);
-
-    // calculate days, hours, minutes, seconds
-    const d = String(Math.floor(left / (1000 * 60 * 60 * 24))).padStart(2, '0');
-    const h = String(Math.floor((left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-    const m = String(Math.floor((left % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-    const s = String(Math.floor((left % (1000 * 60)) / 1000)).padStart(2, '0');
-
-    const el = document.querySelector('.countdown');
-    if (el) el.textContent = `${d}:${h}:${m}:${s}`;
-  }
-
-  tick(); // run immediately
-  setInterval(tick, 1000); // update every second
-});
-</script>
-
-
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const launchKey = "sgp-launch-start";
+    const sevenDays = 1000 * 60 * 60 * 24 * 7;
+    let start = localStorage.getItem(launchKey);
+    if (!start) {
+      start = Date.now();
+      localStorage.setItem(launchKey, start);
+    }
+    function tick() {
+      const now = Date.now();
+      const end = Number(start) + sevenDays;
+      const left = Math.max(0, end - now);
+      const d = String(Math.floor(left / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      const h = String(Math.floor((left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      const m = String(Math.floor((left % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      const s = String(Math.floor((left % (1000 * 60)) / 1000)).padStart(2, '0');
+      const el = document.querySelector('.countdown');
+      if (el) el.textContent = `${d}:${h}:${m}:${s}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  });
+  </script>
 </head>
+
 <body>
   <!-- HEADER -->
   <header>
@@ -275,11 +233,19 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="cover">
           <div class="ebook">
-            <div class="ebookBadge">Ebook PDF</div>
+            <img src="https://raw.githubusercontent.com/thegoldenplayersplaybook/social-casino-experts/main/ebook-cover.jpeg" 
+                 alt="Golden Player’s Playbook Cover" 
+                 class="ebook-img">
           </div>
         </div>
       </div>
     </section>
+
+    <!-- (rest of your sections remain the same) -->
+  </main>
+</body>
+</html>
+
 
     <!-- Problem Callout -->
     <section class="section" id="learn">
@@ -415,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
   © 2025 The Golden Player’s Playbook. All Rights Reserved.  
 
 </footer>
+
 
 
 
